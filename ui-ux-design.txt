@@ -1,0 +1,3 @@
+C:\Users\USER\Documents\PROJECTS_2025\OnlineMarketplace\frontend\components
+
+C:\Users\USER\Documents\PROJECTS_2025\OnlineMarketplace\frontend\components\common_nav.html

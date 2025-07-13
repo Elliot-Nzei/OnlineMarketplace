@@ -1,0 +1,23 @@
+C:/Users/USER/Documents/PROJECTS_2025/OnlineMarketplace/
+├───ui-ux-design.txt
+├───folder_structure_draft.txt
+├───backend/
+│   └───server.py
+├───data/
+└───frontend/
+    ├───index.html
+    ├───assets/
+    │   └───profile .jpg
+    ├───components/
+    │   ├───navbar.html
+    │   └───tabbar.html
+    ├───css/
+    │   └───style.css
+    ├───js/
+    │   └───script.js
+    └───pages/
+        ├───contact.html
+        ├───products.html
+        └───join/
+            ├───login.html
+            └───register.html

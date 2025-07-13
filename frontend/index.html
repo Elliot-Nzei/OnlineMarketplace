@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Marketplace</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="#">Marketplace</a>
+            </div>
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pages/products.html">Products</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="pages/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a href="pages/join/login.html" class="btn btn-secondary">Sign In</a>
+                <a href="pages/join/register.html" class="btn btn-primary">Become a Seller</a>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <div class="hamburger"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Overlay -->
+    <div class="overlay" onclick="toggleMenu()"></div>
+
+    <!-- Side Menu -->
+    <nav class="side-menu">
+        
+        <div class="user-profile">
+            <p>Hello, User!</p>
+        </div>
+        <ul>
+            <li><a href="index.html"><i class="icon">🏠</i> Home</a></li>
+            
+            <li><a href="#"><i class="icon">🏢</i> About</a></li>
+            <li><a href="pages/contact.html"><i class="icon">📞</i> Contact</a></li>
+            <li><a href="pages/join/login.html"><i class="icon">👤</i> Login / Sign Up</a></li>
+            <li><a href="pages/products.html" class="btn btn-primary cta-mobile">Start Shopping</a></li>
+            <li><a href="pages/join/register.html" class="btn btn-outline cta-mobile">Become a Seller</a></li>
+        </ul>
+        <div class="dark-mode-toggle">
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+            </label>
+            <span>Dark Mode</span>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="container grid">
+                <div class="hero-text">
+                    <h1>From Groceries to Real Estate – Your One-Stop Marketplace</h1>
+                    <p>Shop smart or open your own store. Join a growing community of buyers and sellers.</p>
+                    <div class="hero-buttons">
+                        <a href="pages/products.html" class="btn btn-primary">🟢 Start Shopping</a>
+                        <a href="pages/join/register.html" class="btn btn-outline">⚪ Become a Seller</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <p>[Illustration: Looping animation of a vibrant marketplace scene]</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Features Section -->
+        <section id="features" class="container">
+            <div class="grid-features">
+                <div class="card">
+                    <h3>✅ Secure Payments</h3>
+                    <p>Your transactions are safe with our end-to-end encryption.</p>
+                </div>
+                <div class="card">
+                    <h3>🌟 Rated Shops</h3>
+                    <p>Buy with confidence from our community-vetted sellers.</p>
+                </div>
+                <div class="card">
+                    <h3>📱 Mobile Friendly</h3>
+                    <p>Shop on the go with our fully responsive platform.</p>
+                </div>
+                <div class="card">
+                    <h3>📞 24/7 Customer Support</h3>
+                    <p>We are here to help you anytime, anywhere.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Tags Section -->
+        <section id="categories" class="container">
+            <h2>Explore Our Categories</h2>
+            <div class="category-tags">
+                <span>Electronics</span>
+                <span>Land</span>
+                <span>Fashion</span>
+                <span>Services</span>
+                <span>Home Goods</span>
+                <span>Motors</span>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section id="final-cta">
+            <div class="container">
+                <h2>Ready to Buy or Sell?</h2>
+                <div class="hero-buttons">
+                    <a href="pages/products.html" class="btn btn-primary">Start Shopping</a>
+                    <a href="pages/join/register.html" class="btn btn-outline">Become a Seller</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">Marketplace</div>
+                <div class="footer-links">
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="social-icons">
+                    <span>FB</span>
+                    <span>TW</span>
+                    <span>IG</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
