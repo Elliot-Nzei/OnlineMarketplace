@@ -1,3 +1,77 @@
-C:\Users\USER\Documents\PROJECTS_2025\OnlineMarketplace\frontend\components
+placeholder-product.jpg:1 
+ 
+ Failed to load resource: the server responded with a status of 404 (Not Found)
+placeholder-product.jpg:1 
+ 
+ Failed to load resource: the server responded with a status of 404 (Not Found)
+[NEW] Explain Console errors by using Copilot in Edge: click 
+ to explain an error. Learn more
+Don't show again
+﻿
 
-C:\Users\USER\Documents\PROJECTS_2025\OnlineMarketplace\frontend\components\common_nav.html
+Accessibility
+Buttons must have discernible text: Element has no title attribute
+<button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-9 w-9 hover:bg-accent hover:text-accent-foreground" data-state="closed">
+Open in Elements
+Request
+http://127.0.0.1:5500/frontend/pages/products.html
+Further Reading
+Learn more about this axe rule at Deque University
+Learn why this is important and how to fix it on webhint.io
+<button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-9 w-9 hover:bg-accent hover:text-accent-foreground" data-state="closed">
+Open in Elements
+Request
+http://127.0.0.1:5500/frontend/pages/products.html
+Further Reading
+Learn more about this axe rule at Deque University
+Learn why this is important and how to fix it on webhint.io
+<button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground absolute -left-4 -top-4 z-20 h-6 w-6 rounded-full p-1 opacity-0 transition-opacity duration-200 group-hover/primaryCTA:opacity-100">
+Open in Elements
+Request
+http://127.0.0.1:5500/frontend/pages/products.html
+Further Reading
+Learn more about this axe rule at Deque University
+Learn why this is important and how to fix it on webhint.io
+<button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-9 w-9 hover:bg-accent hover:text-accent-foreground" data-state="closed">
+Open in Elements
+Request
+http://127.0.0.1:5500/frontend/pages/products.html
+Further Reading
+Learn more about this axe rule at Deque University
+Learn why this is important and how to fix it on webhint.io
+Form elements must have labels: Element has no title attribute Element has no placeholder attribute
+<input type="checkbox" id="darkModeToggle">
+Open in Elements
+Request
+http://127.0.0.1:5500/frontend/pages/products.html
+Further Reading
+Learn more about this axe rule at Deque University
+Learn why this is important and how to fix it on webhint.io
+Select element must have an accessible name: Element has no title attribute
+<select id="product-filter">
+Open in Elements
+Request
+http://127.0.0.1:5500/frontend/pages/products.html
+Further Reading
+Learn more about this axe rule at Deque University
+Learn why this is important and how to fix it on webhint.io
+Compatibility
+'-webkit-text-size-adjust' is not supported by Chrome, Chrome Android, Edge 79+, Firefox, Safari. Add 'text-size-adjust' to support Chrome 54+, Chrome Android 54+, Edge 79+.
+html,
+:host {
+    -webkit-text-size-adjust: 100%;
+}
+Request
+http://127.0.0.1:5500/frontend/pages/products.html
+Further Reading
+Learn more about this CSS feature on MDN
+Learn why this is important and how to fix it on webhint.io
+'scrollbar-color' is not supported by Safari.
+'scrollbar-width' is not supported by Safari.
+Performance
+'height' changes to this property will trigger: 'Layout', which can impact performance when used inside @keyframes.
+'width' changes to this property will trigger: 'Layout', which can impact performance when used inside @keyframes.
+Other
+'animation' should be listed after '-webkit-animation'.
+'transform' should be listed after '-o-transform'.
+'user-select' should be listed after '-khtml-user-select'.
