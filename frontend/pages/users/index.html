@@ -36,12 +36,30 @@
                     </li>
                 </ul>
             </nav>
+            
             <div class="mobile-nav-icons">
                 <i class="fas fa-search mobile-search-icon"></i>
+                
                 <i class="fas fa-shopping-cart mobile-cart-icon"></i>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Search Overlay -->
+    <div class="mobile-search-overlay">
+        <div class="mobile-search-container">
+            <input type="text" class="mobile-search-input" placeholder="Search...">
+            <i class="fas fa-times close-search-icon"></i>
+        </div>
+    </div>
+
+    <!-- Category Sidebar Overlay -->
+    <div class="category-overlay"></div>
+
+    
+
+    <!-- Promotional Banner -->
+
 
     <!-- Promotional Banner -->
     <section id="promo-banner" class="container">
@@ -53,8 +71,20 @@
     </section>
 
     <main class="shop-main-content container">
+        <div class="mobile-filter-sort-bar">
+            <button class="btn-filter-category"><i class="fas fa-bars"></i> Categories</button>
+            <select class="sort-by">
+                <option value="price-asc">Sort by Price: Low to High</option>
+                <option value="price-desc">Sort by Price: High to Low</option>
+                <option value="rating">Sort by Rating</option>
+                <option value="newest">Sort by Newest</option>
+            </select>
+        </div>
         <aside class="category-sidebar">
-            <h3>Categories</h3>
+            <div class="sidebar-header">
+                <h3>Categories</h3>
+                <button class="close-sidebar-btn"><i class="fas fa-times"></i></button>
+            </div>
             <ul>
                 <li><a href="#">Electronics</a></li>
                 <li><a href="#">Fashion</a></li>
@@ -64,25 +94,7 @@
                 <li><a href="#">Real Estate</a></li>
             </ul>
 
-            <div class="filter-group">
-                <h4>Price Range</h4>
-                <input type="range" min="0" max="1000" value="500" class="slider" id="price-range">
-                <p>$<span id="price-value">500</span></p>
-            </div>
-
-            <div class="filter-group">
-                <h4>Rating</h4>
-                <div class="rating-filter">
-                    <input type="checkbox" id="star5"><label for="star5">⭐⭐⭐⭐⭐</label><br>
-                    <input type="checkbox" id="star4"><label for="star4">⭐⭐⭐⭐</label><br>
-                    <input type="checkbox" id="star3"><label for="star3">⭐⭐⭐</label>
-                </div>
-            </div>
-
-            <div class="filter-group">
-                <h4>Availability</h4>
-                <input type="checkbox" id="in-stock"><label for="in-stock">In Stock</label>
-            </div>
+            
         </aside>
 
         <section class="product-listing">
@@ -149,18 +161,7 @@
             </div>
 
             <section class="product-listing">
-            <div class="sticky-sort-bar">
-                <select class="sort-by">
-                    <option value="price-asc">Sort by Price: Low to High</option>
-                    <option value="price-desc">Sort by Price: High to Low</option>
-                    <option value="rating">Sort by Rating</option>
-                    <option value="newest">Sort by Newest</option>
-                </select>
-                <div class="active-filters">
-                    <!-- Filter chips will be added here by JS -->
-                </div>
-                <span class="clear-all-filters">Clear All</span>
-            </div>
+            
             <h2>Frequently Bought Products</h2>
             <div class="product-grid">
                 <!-- Product Card 1 -->

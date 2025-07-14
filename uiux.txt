@@ -1,0 +1,211 @@
+# 🧩 **UI/UX Plan for `category.html` (Category Page)**
+
+---
+
+## 🎯 **Purpose**
+
+To display products under a selected category (e.g., Electronics, Land, Fashion), with relevant sub-filters, sorting, and detailed browsing capabilities.
+
+---
+
+## 🧱 **Core Layout Overview**
+
+```
+[Top Navigation Bar] — Fixed
+
+[Category Header Banner] — Visual + Title
+
+[Sticky Filter/Sort Bar] — Mobile & Desktop
+
+[Sidebar Filters] — Desktop only
+
+[Product Grid] — Paginated or Infinite Scroll
+
+[Footer or Bottom Tab Bar (mobile)]
+```
+
+---
+
+## 🖥️ **DESKTOP VIEW**
+
+### ✅ 1. **Top Navigation Bar**
+
+Unchanged from global layout:
+
+```
+[ Logo ] [ Search ] | Home | Categories | Shops | Wishlist | Cart | Account
+```
+
+---
+
+### ✅ 2. **Category Header Section**
+
+* Title: "Category: **Electronics**"
+* Optional subtitle: *Showing 180 items*
+* Optional: Show current breadcrumb (e.g. `Home > Categories > Electronics`)
+* Optional image/banner for featured sub-category or promo
+
+---
+
+### ✅ 3. **Sticky Filter & Sort Bar**
+
+* Placed directly above the grid (beneath category heading)
+* Contains:
+
+  * 🔘 **Sort by:** Popular | Price ↑↓ | Newest | Rating
+  * 🔘 **View:** Grid ☐☐☐☐ or List ≡
+  * 🧹 **Clear Filters** (if active filters exist)
+
+---
+
+### ✅ 4. **Sidebar Filters (Left Panel)**
+
+| Filter Group      | UX Design                                                   |
+| ----------------- | ----------------------------------------------------------- |
+| **Subcategories** | Checkbox list with count (e.g. TVs (24), Laptops (41))      |
+| **Brand**         | Searchable checkbox list                                    |
+| **Price Range**   | Dual slider or min/max input                                |
+| **Ratings**       | 5 stars down to 1+, as selectable                           |
+| **Availability**  | In Stock, Out of Stock                                      |
+| **Tags/Features** | Scrollable chip list (e.g. “Touchscreen”, “4K”, “Unlocked”) |
+
+* **Sticky Position:** Sidebar remains visible while scrolling
+* **Filter Tags:** Appear above product grid (removable chips)
+
+---
+
+### ✅ 5. **Product Grid**
+
+* Grid: 4-column (lg), 3 (md), responsive
+* Optional view toggle to switch to "List View" with descriptions
+* **Card hover actions**: Quick View, Add to Cart, Add to Wishlist
+
+---
+
+### ✅ 6. **Pagination / Infinite Scroll**
+
+* Bottom pagination buttons OR infinite loading with loading indicator
+
+---
+
+## 📱 **MOBILE VIEW**
+
+### ✅ 1. **Top Navigation**
+
+Remains the same:
+
+```
+[Logo] [🔍 Search Icon]   [🛒 Cart Icon]
+```
+
+---
+
+### ✅ 2. **Category Title Section**
+
+* Title in large text:
+  *"Fashion"*
+* Optional: dropdown to switch categories from this screen
+
+---
+
+### ✅ 3. **Sticky Filter & Sort Controls**
+
+* Small bar below category title:
+
+  ```
+  [🔘 Filters]  [🔘 Sort]  [🔘 Subcategory ▾]
+  ```
+* Tapping opens **modal bottom sheet**
+
+---
+
+### ✅ 4. **Filter/Sort Modal (Bottom Sheet)**
+
+* **Sort** section (radio select)
+* **Filter** section:
+
+  * Subcategories (checkboxes)
+  * Price range (sliders)
+  * Toggle switches or checkboxes for stock, ratings
+* **Apply Filters** button at bottom
+* **Clear All** at top right
+
+---
+
+### ✅ 5. **Product Grid**
+
+* 2-column layout
+* Tap a product card to go to details
+* Heart icon (wishlist) and cart button appear on tap or are always visible
+* Optional “Swipe to reveal action” (Add to Cart, Save)
+
+---
+
+### ✅ 6. **Pagination / Infinite Scroll**
+
+* "Load More" button or automatic infinite scroll
+
+---
+
+### ✅ 7. **Bottom Tab Bar**
+
+Unchanged:
+
+```
+[🏠 Home] [📂 Category] [🏬 Shops] [❤️ Wishlist] [👤 Account]
+```
+
+---
+
+## 🎨 **Design System Guidelines (Category Page)**
+
+| Element         | Design Detail                                      |
+| --------------- | -------------------------------------------------- |
+| **Typography**  | Bold headings for category; regular for filters    |
+| **Colors**      | Primary brand color for active filters/sorting     |
+| **Iconography** | Feather/FontAwesome icons, clear & minimal         |
+| **Animations**  | Subtle slide-in for modals, hover shadows on cards |
+| **Spacing**     | 16–24px gutter spacing, 10–12px chip padding       |
+
+---
+
+## 💡 UX-Optimized Behaviors
+
+| Behavior                   | Description                                             |
+| -------------------------- | ------------------------------------------------------- |
+| **Sticky Filters**         | Sidebar (desktop) or chips (mobile) stick on scroll     |
+| **Removable Filter Chips** | Show selected filters as tags above product grid        |
+| **Empty State Handling**   | “No products found” message with suggestions            |
+| **Loading Skeletons**      | Placeholder grid when products are loading              |
+| **Product Count Display**  | Always show total + filtered results (e.g. “23 of 180”) |
+| **Quick Navigation**       | Allow swiping subcategories in mobile bar view          |
+
+---
+
+## 🧠 Accessibility & Performance
+
+* `aria-label` on filter inputs & buttons
+* High contrast (pass WCAG 2.1 AA)
+* Mobile-friendly tap targets (48px+)
+* Lazy load images & content
+* Use `<picture>` for responsive images
+
+---
+
+## 🔮 Optional Enhancements
+
+* 🔄 "Compare Products" toggle
+* 📌 "Pin this Filter" on sidebar (desktop)
+* 📦 “Filter Presets” for returning users
+* 🧭 "Back to Top" floating button
+
+---
+
+## ✅ Summary of Flow
+
+1. User lands on category (e.g., *Electronics*)
+2. Instantly sees category name and optionally a promo banner
+3. Sort/filter using sticky bar or modal (mobile)
+4. Scrolls through filtered product grid
+5. Adds to wishlist or cart
+6. Loads more or paginates

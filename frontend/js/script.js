@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Mobile Search Icon (Placeholder for modal/slide-down)
+    // Mobile Search Icon functionality
     const mobileSearchIcon = document.querySelector('.mobile-search-icon');
     const mobileSearchOverlay = document.querySelector('.mobile-search-overlay');
     const closeSearchIcon = document.querySelector('.close-search-icon');
@@ -48,26 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Mobile Search Icon (Placeholder for modal/slide-down)
-    const mobileSearchIcon = document.querySelector('.mobile-search-icon');
-    const mobileSearchOverlay = document.querySelector('.mobile-search-overlay');
-    const closeSearchIcon = document.querySelector('.close-search-icon');
-
-    if (mobileSearchIcon && mobileSearchOverlay && closeSearchIcon) {
-        mobileSearchIcon.addEventListener('click', () => {
-            mobileSearchOverlay.classList.add('active');
-        });
-
-        closeSearchIcon.addEventListener('click', () => {
-            mobileSearchOverlay.classList.remove('active');
-        });
-
-        mobileSearchOverlay.addEventListener('click', (e) => {
-            if (e.target === mobileSearchOverlay) {
-                mobileSearchOverlay.classList.remove('active');
-            }
-        });
-    }
+    
 
     // Dark mode toggle (retained from previous)
     const darkModeToggle = document.getElementById('darkModeToggle');
@@ -77,41 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Price Range Slider functionality
-    const priceRange = document.getElementById('price-range');
-    const priceValue = document.getElementById('price-value');
-    if (priceRange && priceValue) {
-        priceValue.textContent = priceRange.value;
-        priceRange.addEventListener('input', (event) => {
-            priceValue.textContent = event.target.value;
-            // In a real app, trigger product filter here
-            console.log('Price range changed to:', event.target.value);
-        });
-    }
+    
 
-    // Filter Checkbox functionality (Rating, Availability)
-    document.querySelectorAll('.filter-group input[type="checkbox"]').forEach(checkbox => {
-        checkbox.addEventListener('change', (event) => {
-            console.log(`${event.target.id} filter toggled: ${event.target.checked}`);
-            // In a real app, trigger product filter here and update filter chips
-        });
-    });
+    
 
-    // Clear All Filters functionality
-    const clearAllFiltersBtn = document.querySelector('.clear-all-filters');
-    if (clearAllFiltersBtn) {
-        clearAllFiltersBtn.addEventListener('click', () => {
-            document.querySelectorAll('.filter-group input[type="checkbox"]').forEach(checkbox => {
-                checkbox.checked = false;
-            });
-            if (priceRange) {
-                priceRange.value = priceRange.max / 2; // Reset to middle or default
-                priceValue.textContent = priceRange.value;
-            }
-            // In a real app, clear all active filter chips and re-render products
-            console.log('All filters cleared!');
-        });
-    }
+    
 
     // Basic Lazy Loading (for product images)
     const lazyLoadImages = document.querySelectorAll('img[data-src]');
@@ -130,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         imageObserver.observe(img);
     });
 
-    // Mobile Category Sidebar Toggle
+    // Mobile Category Sidebar Toggle (retained, but filters moved)
     const btnFilterCategory = document.querySelector('.btn-filter-category');
     const categorySidebar = document.querySelector('.category-sidebar');
     const closeSidebarBtn = document.querySelector('.close-sidebar-btn');
@@ -147,9 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
             categoryOverlay.classList.remove('active');
         });
 
-        categoryOverlay.addEventListener('click', () => {
-            categorySidebar.classList.remove('active');
-            categoryOverlay.classList.remove('active');
+        categoryOverlay.addEventListener('click', (e) => {
+            if (e.target === categoryOverlay) {
+                categorySidebar.classList.remove('active');
+                categoryOverlay.classList.remove('active');
+            }
         });
     }
 
