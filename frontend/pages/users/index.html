@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Online Marketplace</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo">
+                <a href="#">Online Marketplace</a>
+            </div>
+            <div class="search-bar-container">
+                <input type="text" class="search-input" placeholder="Search for products...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Category</a></li>
+                    <li><a href="#">Shops</a></li>
+                    <li><a href="#"><i class="fas fa-heart"></i> Wishlist</a></li>
+                    <li><a href="#"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                    <li class="account-menu-toggle">
+                        <a href="#"><i class="fas fa-user-circle"></i> Account</a>
+                        <div class="account-dropdown">
+                            <a href="#">Profile</a>
+                            <a href="#">My Orders</a>
+                            <a href="#">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="mobile-nav-icons">
+                <i class="fas fa-search mobile-search-icon"></i>
+                <i class="fas fa-shopping-cart mobile-cart-icon"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="shop-main-content container">
+        <aside class="category-sidebar">
+            <h3>Categories</h3>
+            <ul>
+                <li><a href="#">Electronics</a></li>
+                <li><a href="#">Fashion</a></li>
+                <li><a href="#">Home & Garden</a></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="#">Sports</a></li>
+                <li><a href="#">Real Estate</a></li>
+            </ul>
+        </aside>
+
+        <section class="product-listing">
+            <div class="filter-bar">
+                <select class="sort-by">
+                    <option value="price-asc">Sort by Price: Low to High</option>
+                    <option value="price-desc">Sort by Price: High to Low</option>
+                    <option value="rating">Sort by Rating</option>
+                    <option value="newest">Sort by Newest</option>
+                </select>
+            </div>
+
+            <div class="product-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <img src="../../assets/placeholder-product.jpg" alt="Product Name">
+                    <h4 class="product-name">Product Name 1</h4>
+                    <p class="product-price">$19.99</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    </div>
+                    <i class="far fa-heart wishlist-icon"></i>
+                    <div class="product-actions">
+                        <button class="quick-view-btn">Quick View</button>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <img src="../../assets/placeholder-product.jpg" alt="Product Name">
+                    <h4 class="product-name">Product Name 2</h4>
+                    <p class="product-price">$29.99</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <i class="far fa-heart wishlist-icon"></i>
+                    <div class="product-actions">
+                        <button class="quick-view-btn">Quick View</button>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <img src="../../assets/placeholder-product.jpg" alt="Product Name">
+                    <h4 class="product-name">Product Name 3</h4>
+                    <p class="product-price">$39.99</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <i class="far fa-heart wishlist-icon"></i>
+                    <div class="product-actions">
+                        <button class="quick-view-btn">Quick View</button>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product Card 4 -->
+                <div class="product-card">
+                    <img src="../../assets/placeholder-product.jpg" alt="Product Name">
+                    <h4 class="product-name">Product Name 4</h4>
+                    <p class="product-price">$49.99</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <i class="far fa-heart wishlist-icon"></i>
+                    <div class="product-actions">
+                        <button class="quick-view-btn">Quick View</button>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <a href="#">&laquo; Previous</a>
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">Next &raquo;</a>
+            </div>
+        </section>
+    </main>
+
+    <nav class="bottom-tab-bar">
+        <a href="#" class="tab-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="tab-item">
+            <i class="fas fa-folder-open"></i>
+            <span>Category</span>
+        </a>
+        <a href="#" class="tab-item">
+            <i class="fas fa-store"></i>
+            <span>Shops</span>
+        </a>
+        <a href="#" class="tab-item">
+            <i class="fas fa-heart"></i>
+            <span>Wishlist</span>
+        </a>
+        <a href="#" class="tab-item">
+            <i class="fas fa-user-circle"></i>
+            <span>Account</span>
+        </a>
+    </nav>
+
+    <script src="../../js/script.js"></script>
+</body>
+</html>
