@@ -1,211 +1,215 @@
-# 🧩 **UI/UX Plan for `category.html` (Category Page)**
-
----
-
-## 🎯 **Purpose**
-
-To display products under a selected category (e.g., Electronics, Land, Fashion), with relevant sub-filters, sorting, and detailed browsing capabilities.
-
----
-
-## 🧱 **Core Layout Overview**
-
-```
-[Top Navigation Bar] — Fixed
-
-[Category Header Banner] — Visual + Title
-
-[Sticky Filter/Sort Bar] — Mobile & Desktop
-
-[Sidebar Filters] — Desktop only
-
-[Product Grid] — Paginated or Infinite Scroll
-
-[Footer or Bottom Tab Bar (mobile)]
+.layout {
+  display: grid;
+  grid-template-areas: "sidebar body";
+  grid-template-columns: 20% 1fr;
+  gap: 16px;
+}
 ```
 
+When a category is selected, the body shows all its **subcategories**, each with:
+
+* A **subcategory title**
+* 3–4 preview products
+* A **"View All"** link
+
 ---
 
-## 🖥️ **DESKTOP VIEW**
+# ✅ FULL CATEGORY PAGE UI/UX PLAN (LAPTOP + PHONE)
 
-### ✅ 1. **Top Navigation Bar**
+---
 
-Unchanged from global layout:
+## 🖥️ DESKTOP (LAPTOP) VIEW
 
+### ✅ **Layout (CSS Grid)**
+
+```plaintext
+┌────────────────────────────┬──────────────────────────────────────────────┐
+│ Sidebar: Main Categories   │ Body: Subcategories + Products               │
+└────────────────────────────┴──────────────────────────────────────────────┘
 ```
-[ Logo ] [ Search ] | Home | Categories | Shops | Wishlist | Cart | Account
-```
 
----
+#### 📦 Sidebar (`.sidebar`)
 
-### ✅ 2. **Category Header Section**
+* Fixed-width (20% or \~250px)
+* Scrollable if list overflows
+* Uses icons + category names
+* **Active category** is highlighted
+* **Sticky** for persistent navigation (optional)
 
-* Title: "Category: **Electronics**"
-* Optional subtitle: *Showing 180 items*
-* Optional: Show current breadcrumb (e.g. `Home > Categories > Electronics`)
-* Optional image/banner for featured sub-category or promo
+#### 🧩 Example Markup
 
----
-
-### ✅ 3. **Sticky Filter & Sort Bar**
-
-* Placed directly above the grid (beneath category heading)
-* Contains:
-
-  * 🔘 **Sort by:** Popular | Price ↑↓ | Newest | Rating
-  * 🔘 **View:** Grid ☐☐☐☐ or List ≡
-  * 🧹 **Clear Filters** (if active filters exist)
-
----
-
-### ✅ 4. **Sidebar Filters (Left Panel)**
-
-| Filter Group      | UX Design                                                   |
-| ----------------- | ----------------------------------------------------------- |
-| **Subcategories** | Checkbox list with count (e.g. TVs (24), Laptops (41))      |
-| **Brand**         | Searchable checkbox list                                    |
-| **Price Range**   | Dual slider or min/max input                                |
-| **Ratings**       | 5 stars down to 1+, as selectable                           |
-| **Availability**  | In Stock, Out of Stock                                      |
-| **Tags/Features** | Scrollable chip list (e.g. “Touchscreen”, “4K”, “Unlocked”) |
-
-* **Sticky Position:** Sidebar remains visible while scrolling
-* **Filter Tags:** Appear above product grid (removable chips)
-
----
-
-### ✅ 5. **Product Grid**
-
-* Grid: 4-column (lg), 3 (md), responsive
-* Optional view toggle to switch to "List View" with descriptions
-* **Card hover actions**: Quick View, Add to Cart, Add to Wishlist
-
----
-
-### ✅ 6. **Pagination / Infinite Scroll**
-
-* Bottom pagination buttons OR infinite loading with loading indicator
-
----
-
-## 📱 **MOBILE VIEW**
-
-### ✅ 1. **Top Navigation**
-
-Remains the same:
-
-```
-[Logo] [🔍 Search Icon]   [🛒 Cart Icon]
+```html
+<ul class="sidebar">
+  <li class="active">📱 Electronics</li>
+  <li>👕 Fashion</li>
+  <li>🏠 Home & Office</li>
+</ul>
 ```
 
 ---
 
-### ✅ 2. **Category Title Section**
+#### 🧱 Main Body (`.body`)
 
-* Title in large text:
-  *"Fashion"*
-* Optional: dropdown to switch categories from this screen
+* Dynamically updated based on selected main category
+* Renders subcategory blocks with:
 
----
+  * Title (e.g. "Smartphones")
+  * Product preview grid (3–4 products)
+  * "View All →" link
 
-### ✅ 3. **Sticky Filter & Sort Controls**
+##### 🔧 Product Preview Grid
 
-* Small bar below category title:
-
-  ```
-  [🔘 Filters]  [🔘 Sort]  [🔘 Subcategory ▾]
-  ```
-* Tapping opens **modal bottom sheet**
+* `grid-template-columns: repeat(auto-fill, minmax(180px, 1fr))`
+* Hover: quick add to cart, wishlist
+* Responsive spacing and cards
 
 ---
 
-### ✅ 4. **Filter/Sort Modal (Bottom Sheet)**
+## 📱 PHONE VIEW
 
-* **Sort** section (radio select)
-* **Filter** section:
+### 🔄 Layout Switch (Media Query)
 
-  * Subcategories (checkboxes)
-  * Price range (sliders)
-  * Toggle switches or checkboxes for stock, ratings
-* **Apply Filters** button at bottom
-* **Clear All** at top right
+* Grid switches to stacked layout
 
----
-
-### ✅ 5. **Product Grid**
-
-* 2-column layout
-* Tap a product card to go to details
-* Heart icon (wishlist) and cart button appear on tap or are always visible
-* Optional “Swipe to reveal action” (Add to Cart, Save)
-
----
-
-### ✅ 6. **Pagination / Infinite Scroll**
-
-* "Load More" button or automatic infinite scroll
-
----
-
-### ✅ 7. **Bottom Tab Bar**
-
-Unchanged:
-
-```
-[🏠 Home] [📂 Category] [🏬 Shops] [❤️ Wishlist] [👤 Account]
+```css
+@media (max-width: 768px) {
+  .layout {
+    grid-template-areas:
+      "sidebar"
+      "body";
+    grid-template-columns: 1fr;
+  }
+}
 ```
 
 ---
 
-## 🎨 **Design System Guidelines (Category Page)**
+### ✅ Phone Navigation UX
 
-| Element         | Design Detail                                      |
-| --------------- | -------------------------------------------------- |
-| **Typography**  | Bold headings for category; regular for filters    |
-| **Colors**      | Primary brand color for active filters/sorting     |
-| **Iconography** | Feather/FontAwesome icons, clear & minimal         |
-| **Animations**  | Subtle slide-in for modals, hover shadows on cards |
-| **Spacing**     | 16–24px gutter spacing, 10–12px chip padding       |
+#### 🔹 Top Sticky Nav
 
----
+```plaintext
+[ ☰ ] Logo     🔍   🛒
+```
 
-## 💡 UX-Optimized Behaviors
+* Tapping ☰ opens main category menu (off-canvas or accordion)
+* Clicking a category closes menu and loads subcategories
 
-| Behavior                   | Description                                             |
-| -------------------------- | ------------------------------------------------------- |
-| **Sticky Filters**         | Sidebar (desktop) or chips (mobile) stick on scroll     |
-| **Removable Filter Chips** | Show selected filters as tags above product grid        |
-| **Empty State Handling**   | “No products found” message with suggestions            |
-| **Loading Skeletons**      | Placeholder grid when products are loading              |
-| **Product Count Display**  | Always show total + filtered results (e.g. “23 of 180”) |
-| **Quick Navigation**       | Allow swiping subcategories in mobile bar view          |
+#### 🔹 Category Menu
 
----
+| Component      | Behavior                         |
+| -------------- | -------------------------------- |
+| Accordion list | Expand to show subcategories     |
+| Active state   | Highlighted background           |
+| Scroll memory  | Remembers last selected category |
 
-## 🧠 Accessibility & Performance
+#### 🔹 Subcategory Block UI
 
-* `aria-label` on filter inputs & buttons
-* High contrast (pass WCAG 2.1 AA)
-* Mobile-friendly tap targets (48px+)
-* Lazy load images & content
-* Use `<picture>` for responsive images
+* Stacked vertically
+* Each block:
 
----
+  * Subcategory title
+  * Scrollable horizontal product preview
+  * "View All →" button below preview
 
-## 🔮 Optional Enhancements
+##### Example Layout:
 
-* 🔄 "Compare Products" toggle
-* 📌 "Pin this Filter" on sidebar (desktop)
-* 📦 “Filter Presets” for returning users
-* 🧭 "Back to Top" floating button
+```plaintext
+🖼️ Subcategory: Smartphones
+[Image][Image][Image] → (scrollable)
+[View All →]
+
+🖼️ Subcategory: Audio
+[Image][Image][Image] → (scrollable)
+[View All →]
+```
 
 ---
 
-## ✅ Summary of Flow
+## ✨ DESIGN SPECIFICATIONS
 
-1. User lands on category (e.g., *Electronics*)
-2. Instantly sees category name and optionally a promo banner
-3. Sort/filter using sticky bar or modal (mobile)
-4. Scrolls through filtered product grid
-5. Adds to wishlist or cart
-6. Loads more or paginates
+### 🧩 Subcategory Block Styling
+
+```css
+.subcategory-section {
+  margin-bottom: 1.5rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 1rem;
+}
+.subcategory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product-grid {
+  display: grid; // desktop
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+.product-scroll { // mobile
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+}
+```
+
+---
+
+### 🎨 Design System
+
+| Element      | Spec                                    |
+| ------------ | --------------------------------------- |
+| Font         | `Inter`, `Poppins`, or `Roboto`         |
+| Colors       | White background, brand color `#007bff` |
+| Highlight    | `background-color: #f0f0f0` on hover    |
+| Active state | `background: #007bff; color: #fff`      |
+| Icons        | FontAwesome or Feather                  |
+| Transitions  | 0.2s ease-in-out for hover, active      |
+
+---
+
+## 🧠 UX INTERACTION FLOW
+
+| Action                          | Outcome                                        |
+| ------------------------------- | ---------------------------------------------- |
+| Click Category (sidebar/mobile) | Updates `.body` with new subcategories         |
+| Click "View All"                | Redirects to `/products?subcategory=x`         |
+| Hover Product Card              | Shows Add to Cart / Wishlist buttons (desktop) |
+| Tap Product Card                | Opens quick view modal or redirects (mobile)   |
+
+---
+
+## 📦 CATEGORY/SUBCATEGORY DATA EXAMPLE
+
+```json
+{
+  "Electronics": {
+    "Smartphones": [
+      { "name": "iPhone 13", "img": "...", "price": 950 },
+      { "name": "Samsung A54", "img": "...", "price": 350 }
+    ],
+    "Audio": [...],
+    "TVs": [...]
+  },
+  "Fashion": {
+    "Men's Clothing": [...],
+    "Women's Clothing": [...]
+  }
+}
+```
+
+---
+
+## ✅ FINAL CHECKLIST
+
+| Feature                    | Status |
+| -------------------------- | ------ |
+| Responsive Grid Layout     | ✔️     |
+| Sidebar Nav (Desktop)      | ✔️     |
+| Accordion Menu (Mobile)    | ✔️     |
+| Subcategory Previews       | ✔️     |
+| Product Cards (3–4/sample) | ✔️     |
+| View All Per Subcategory   | ✔️     |
+| Smooth Transitions         | ✔️     |

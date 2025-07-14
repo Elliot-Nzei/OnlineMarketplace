@@ -1,0 +1,393 @@
+
+/* Category Page Specific Styles */
+
+.category-main-content {
+    padding: 20px 0;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* Fixed sidebar width, flexible body */
+    gap: 20px;
+    min-height: 70vh; /* Ensure layout takes up most of the viewport height */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden; /* Ensures rounded corners are respected */
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-right: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0; /* Stick to the top of the viewport */
+    align-self: start; /* Ensures it sticks within its grid area */
+    height: 100vh; /* Make it take full viewport height */
+    overflow-y: auto; /* Enable scrolling for long content */
+}
+
+.sidebar h3 {
+    font-size: 1.4em;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 16px 24px; /* 1rem 1.5rem */
+    cursor: pointer;
+    font-size: 1.05em;
+    color: #555;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar ul li:hover {
+    background-color: #e9e9e9;
+    color: #333;
+}
+
+.sidebar ul li.active {
+    background-color: #007bff; /* Primary color for active state */
+    color: #fff;
+    font-weight: 600;
+}
+
+.sidebar ul li i.fas {
+    margin-right: 8px;
+    width: 20px; /* Ensure consistent icon alignment */
+    text-align: center;
+}
+
+.sidebar ul li.has-submenu {
+    position: relative;
+    padding-right: 30px; /* Make space for the chevron icon */
+}
+
+.sidebar ul li.has-submenu .expand-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.sidebar ul li.has-submenu.expanded .expand-icon {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.sidebar ul .submenu {
+    list-style: none;
+    padding-left: 20px; /* Indent sub-items */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #f0f0f0; /* Slightly different background for submenus */
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.sidebar ul .submenu li {
+    padding: 8px 10px;
+    font-size: 0.95em;
+    color: #666;
+}
+
+.sidebar ul .submenu li:hover {
+    background-color: #e0e0e0;
+}
+
+.body {
+    grid-area: body;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.body h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.category-banner {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.category-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.category-description {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.subcategory-section {
+    margin-bottom: 1.5rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 1rem;
+}
+
+.subcategory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.subcategory-header h3 {
+    font-size: 1.4em;
+    color: #333;
+    margin: 0;
+}
+
+.body #category-content {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+.view-all-link {
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+}
+
+.view-all-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    display: block; /* Make the whole area clickable */
+    cursor: pointer;
+}
+
+.view-all-link a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Product Grid and Card Styles */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 16px 24px; /* 1rem 1.5rem */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Added opacity and transform for animation */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 0.5s forwards;
+}
+
+@keyframes fadeInSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 150px; /* Fixed height for product images */
+    object-fit: contain; /* Ensures image fits without cropping */
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.product-card h3 {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 5px;
+    flex-grow: 1; /* Allows title to take available space */
+}
+
+.product-card .price {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.product-actions button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.product-actions button:hover {
+    background-color: #0056b3;
+}
+
+.product-actions button.add-to-wishlist {
+    background-color: #6c757d;
+}
+
+.product-actions button.add-to-wishlist:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .layout {
+        grid-template-columns: 1fr; /* Stack sidebar and body on smaller screens */
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "sidebar"
+            "body";
+    }
+
+    .sidebar {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    .sidebar h3 {
+        text-align: center;
+    }
+
+    .sidebar ul {
+        display: block; /* Stack items vertically */
+        gap: 0; /* Remove gap for stacked items */
+    }
+
+    .sidebar ul li {
+        width: 100%; /* Full width for accordion items */
+        text-align: left; /* Align text left */
+        max-width: none; /* Remove max-width constraint */
+        margin-bottom: 5px; /* Add some space between items */
+    }
+
+    .sidebar ul li.has-submenu {
+        padding-right: 40px; /* Ensure space for chevron */
+    }
+
+    .sidebar ul li.has-submenu .expand-icon {
+        right: 15px;
+    }
+
+    .sidebar ul .submenu {
+        padding-left: 15px; /* Adjust indent for mobile submenus */
+        background-color: #f9f9f9; /* Lighter background for mobile submenus */
+        border-radius: 0; /* Remove border-radius for stacked appearance */
+        margin-top: 0; /* Remove top margin */
+    }
+
+    .sidebar ul .submenu li {
+        padding: 10px 15px; /* Adjust padding for sub-items */
+        font-size: 1em;
+    }
+
+    .sidebar ul li.has-submenu {
+        text-align: left; /* Align text left for accordion headers */
+        padding-right: 40px; /* More space for chevron */
+        background-color: #e9e9e9; /* Slightly darker background for mobile accordion headers */
+        margin-bottom: 5px; /* Space between accordion items */
+    }
+
+    .sidebar ul li.has-submenu.expanded {
+        background-color: #dcdcdc; /* Even darker when expanded */
+    }
+
+    .sidebar ul li.has-submenu .expand-icon {
+        right: 15px;
+    }
+
+    .sidebar ul .submenu {
+        padding-left: 15px; /* Adjust indent for mobile */
+        background-color: #f5f5f5; /* Lighter background for mobile submenus */
+        border-top: 1px solid #eee; /* Separator for submenu */
+        margin-top: 0; /* Remove top margin */
+    }
+
+    .sidebar ul .submenu li {
+        text-align: left; /* Align subcategory text left */
+        padding: 10px 15px; /* Adjust padding for sub-items */
+    }
+
+    .body {
+        padding-top: 0;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .product-scroll { /* Mobile specific horizontal scroll for product previews */
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        padding-bottom: 10px; /* Space for scrollbar */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+
+    .product-scroll .product-card {
+        flex: 0 0 150px; /* Fixed width for cards in scroll view */
+    }
+
+    .product-card {
+        padding: 10px;
+    }
+
+    .product-card img {
+        height: 120px;
+    }
+
+    .product-actions button {
+        padding: 6px 8px;
+        font-size: 0.8em;
+    }
+}
