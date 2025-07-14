@@ -926,6 +926,49 @@ body.dark-mode .close-search-icon {
     gap: 25px;
 }
 
+/* Frequently Bought Slider */
+.frequently-bought-slider {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 15px;
+    padding-bottom: 10px; /* Space for scrollbar */
+    margin-bottom: 40px; /* Add space below the slider */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.frequently-bought-slider::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Webkit browsers */
+}
+
+.frequently-bought-slider .product-card {
+    flex: 0 0 45%; /* Two products side-by-side on mobile */
+    max-width: 45%;
+}
+
+@media (min-width: 769px) {
+    .frequently-bought-slider {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* Show 4 products in a row on laptop */
+        overflow-x: visible;
+        padding-bottom: 0;
+        gap: 25px; /* Match main product grid gap */
+    }
+
+    .frequently-bought-slider .product-card {
+        flex: none;
+        max-width: none;
+    }
+
+    .product-listing h2 {
+        margin-top: 40px; /* Add space above section headings */
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust min-width for better laptop layout */
+    }
+}
+
 .product-card {
     background: var(--light-color);
     border-radius: var(--border-radius);
