@@ -29,10 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mobile Search Icon (Placeholder for modal/slide-down)
     const mobileSearchIcon = document.querySelector('.mobile-search-icon');
-    if (mobileSearchIcon) {
+    const mobileSearchOverlay = document.querySelector('.mobile-search-overlay');
+    const closeSearchIcon = document.querySelector('.close-search-icon');
+
+    if (mobileSearchIcon && mobileSearchOverlay && closeSearchIcon) {
         mobileSearchIcon.addEventListener('click', () => {
-            alert('Mobile search functionality coming soon!');
-            // In a real app, you'd show a search modal or expand the search bar
+            mobileSearchOverlay.classList.add('active');
+        });
+
+        closeSearchIcon.addEventListener('click', () => {
+            mobileSearchOverlay.classList.remove('active');
+        });
+
+        mobileSearchOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileSearchOverlay) {
+                mobileSearchOverlay.classList.remove('active');
+            }
         });
     }
 
