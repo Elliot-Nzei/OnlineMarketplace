@@ -43,13 +43,14 @@
         </div>
     </header>
 
-    <!-- Mobile Search Overlay -->
-    <div class="mobile-search-overlay">
-        <div class="mobile-search-container">
-            <input type="text" class="mobile-search-input" placeholder="Search for products...">
-            <i class="fas fa-times close-search-icon"></i>
+    <!-- Promotional Banner -->
+    <section id="promo-banner" class="container">
+        <div class="banner-content">
+            <h2>🛍️ Mid-Year Sales — Up to 40% Off Real Estate Listings!</h2>
+            <p>Discover amazing deals across all categories.</p>
+            <a href="#" class="btn btn-primary">Shop Now</a>
         </div>
-    </div>
+    </section>
 
     <main class="shop-main-content container">
         <aside class="category-sidebar">
@@ -62,6 +63,26 @@
                 <li><a href="#">Sports</a></li>
                 <li><a href="#">Real Estate</a></li>
             </ul>
+
+            <div class="filter-group">
+                <h4>Price Range</h4>
+                <input type="range" min="0" max="1000" value="500" class="slider" id="price-range">
+                <p>$<span id="price-value">500</span></p>
+            </div>
+
+            <div class="filter-group">
+                <h4>Rating</h4>
+                <div class="rating-filter">
+                    <input type="checkbox" id="star5"><label for="star5">⭐⭐⭐⭐⭐</label><br>
+                    <input type="checkbox" id="star4"><label for="star4">⭐⭐⭐⭐</label><br>
+                    <input type="checkbox" id="star3"><label for="star3">⭐⭐⭐</label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h4>Availability</h4>
+                <input type="checkbox" id="in-stock"><label for="in-stock">In Stock</label>
+            </div>
         </aside>
 
         <section class="product-listing">
@@ -74,6 +95,7 @@
                     <p class="product-price">$19.99</p>
                     <div class="product-rating">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                        <span>4.5/5</span>
                     </div>
                     <i class="far fa-heart wishlist-icon"></i>
                     <div class="product-actions">
@@ -88,6 +110,7 @@
                     <p class="product-price">$29.99</p>
                     <div class="product-rating">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span>4.0/5</span>
                     </div>
                     <i class="far fa-heart wishlist-icon"></i>
                     <div class="product-actions">
@@ -125,16 +148,20 @@
                 </div>
             </div>
 
-            <div class="filter-bar">
+            <section class="product-listing">
+            <div class="sticky-sort-bar">
                 <select class="sort-by">
                     <option value="price-asc">Sort by Price: Low to High</option>
                     <option value="price-desc">Sort by Price: High to Low</option>
                     <option value="rating">Sort by Rating</option>
                     <option value="newest">Sort by Newest</option>
                 </select>
+                <div class="active-filters">
+                    <!-- Filter chips will be added here by JS -->
+                </div>
+                <span class="clear-all-filters">Clear All</span>
             </div>
-
-            <h2>Recommended Products</h2>
+            <h2>Frequently Bought Products</h2>
             <div class="product-grid">
                 <!-- Product Card 1 -->
                 <div class="product-card">
@@ -143,6 +170,7 @@
                     <p class="product-price">$19.99</p>
                     <div class="product-rating">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                        <span>4.5/5</span>
                     </div>
                     <i class="far fa-heart wishlist-icon"></i>
                     <div class="product-actions">
@@ -157,6 +185,7 @@
                     <p class="product-price">$29.99</p>
                     <div class="product-rating">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span>4.0/5</span>
                     </div>
                     <i class="far fa-heart wishlist-icon"></i>
                     <div class="product-actions">
