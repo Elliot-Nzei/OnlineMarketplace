@@ -1,4 +1,3 @@
-
 /* Category Page Specific Styles */
 
 .category-main-content {
@@ -251,6 +250,14 @@
     display: flex;
     justify-content: space-around;
     gap: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.product-card:hover .product-actions {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .product-actions button {
@@ -278,6 +285,61 @@
 
 .product-actions button.add-to-wishlist:hover {
     background-color: #5a6268;
+}
+
+/* Skeleton Loader Styles */
+.skeleton-loader {
+    background-color: #e0e0e0;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-text {
+    height: 1em;
+    margin-bottom: 0.5em;
+    border-radius: 4px;
+}
+
+.skeleton-image {
+    width: 100%;
+    height: 150px; /* Match product image height */
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.skeleton-button {
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: #e0e0e0;
+    }
+    50% {
+        background-color: #f0f0f0;
+    }
+    100% {
+        background-color: #e0e0e0;
+    }
+}
+
+.view-all-products-button {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0 auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.view-all-products-button:hover {
+    background-color: #0056b3;
 }
 
 /* Responsive Adjustments */
@@ -389,5 +451,533 @@
     .product-actions button {
         padding: 6px 8px;
         font-size: 0.8em;
+    }
+}
+
+/* New Styles for Enhanced Category Page */
+
+/* Category Header/Banner */
+.category-header {
+    text-align: center;
+    padding: 30px 20px;
+    background: var(--secondary-color);
+    margin-bottom: 20px;
+    border-radius: var(--border-radius);
+}
+
+.category-header h2 {
+    font-size: 2.5rem;
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+
+.category-header h2 span {
+    color: var(--primary-color);
+}
+
+.category-header .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+/* Sticky Filter & Sort Bar */
+.sticky-filter-sort-bar {
+    position: sticky;
+    top: 60px; /* Adjust based on main header height */
+    background: var(--light-color);
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 20px;
+    border-radius: var(--border-radius);
+}
+
+.sticky-filter-sort-bar .sort-options,
+.sticky-filter-sort-bar .view-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sticky-filter-sort-bar .sort-by-select {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
+    font-size: 0.9rem;
+}
+
+.sticky-filter-sort-bar .view-toggle {
+    background: var(--secondary-color);
+    color: var(--dark-color);
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.sticky-filter-sort-bar .view-toggle.active,
+.sticky-filter-sort-bar .view-toggle:hover {
+    background: var(--primary-color);
+    color: var(--light-color);
+    border-color: var(--primary-color);
+}
+
+.sticky-filter-sort-bar .clear-filters-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.sticky-filter-sort-bar .clear-filters-btn:hover {
+    text-decoration: underline;
+}
+
+/* Desktop Filters (Sidebar) */
+.category-content-wrapper {
+    display: flex;
+    gap: 30px;
+    padding-bottom: 30px;
+}
+
+.category-sidebar.desktop-filters {
+    flex: 0 0 250px; /* Fixed width for sidebar */
+    background: var(--light-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    height: fit-content; /* Adjust height to content */
+    position: sticky;
+    top: 130px; /* Below header and sticky sort bar */
+}
+
+.category-sidebar .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.category-sidebar .sidebar-header h3 {
+    margin-bottom: 0;
+}
+
+.category-sidebar .close-sidebar-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    cursor: pointer;
+}
+
+.filter-group {
+    margin-bottom: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.filter-group:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+.filter-group h4 {
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+.filter-group ul {
+    list-style: none;
+}
+
+.filter-group ul li {
+    margin-bottom: 8px;
+}
+
+.filter-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.filter-group input[type="checkbox"],
+.filter-group input[type="radio"] {
+    margin-right: 5px;
+}
+
+.price-range-display {
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.price-range-slider {
+    width: 100%;
+}
+
+.rating-filter label {
+    color: #ccc;
+}
+
+.rating-filter input[type="radio"]:checked ~ label {
+    color: #ffc107;
+}
+
+/* Custom Checkbox/Radio for better styling */
+.custom-checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: var(--text-color);
+}
+
+.custom-checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #eee;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.custom-checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.custom-checkbox-container input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custom-checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.custom-checkbox-container .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* Active Filter Chips */
+.active-filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-chip {
+    background: var(--primary-color);
+    color: var(--light-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.filter-chip .remove-filter {
+    margin-left: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Mobile Filter/Sort Modal (Bottom Sheet) */
+.filter-sort-modal-overlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.filter-sort-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.filter-sort-modal {
+    background: var(--light-color);
+    width: 100%;
+    max-height: 80%;
+    border-radius: 15px 15px 0 0;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-sort-modal-overlay.active .filter-sort-modal {
+    transform: translateY(0);
+}
+
+.filter-sort-modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.filter-sort-modal .modal-header h3 {
+    margin: 0;
+    color: var(--dark-color);
+}
+
+.filter-sort-modal .close-modal-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.filter-sort-modal .modal-content {
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.filter-sort-modal .modal-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    gap: 10px;
+}
+
+.filter-sort-modal .modal-footer .btn {
+    flex: 1;
+}
+
+.sort-options-mobile label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Dark mode adjustments for new elements */
+body.dark-mode .category-header {
+    background: var(--dark-mode-card-bg);
+}
+
+body.dark-mode .category-header h2,
+body.dark-mode .category-header .subtitle {
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode .sticky-filter-sort-bar {
+    background: var(--dark-mode-bg);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .sticky-filter-sort-bar .sort-by-select,
+body.dark-mode .sticky-filter-sort-bar .view-toggle {
+    background: var(--dark-mode-card-bg);
+    border-color: var(--dark-mode-border);
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode .sticky-filter-sort-bar .view-toggle.active,
+body.dark-mode .sticky-filter-sort-bar .view-toggle:hover {
+    background: var(--primary-color);
+    color: var(--light-color);
+}
+
+body.dark-mode .sticky-filter-sort-bar .clear-filters-btn {
+    color: var(--primary-color);
+}
+
+body.dark-mode .category-sidebar.desktop-filters {
+    background: var(--dark-mode-card-bg);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .category-sidebar .sidebar-header h3,
+body.dark-mode .category-sidebar .close-sidebar-btn,
+body.dark-mode .filter-group h4,
+body.dark-mode .filter-group label,
+body.dark-mode .price-range-display,
+body.dark-mode .tag-chips span {
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode .filter-group input[type="checkbox"],
+body.dark-mode .filter-group input[type="radio"] {
+    background: var(--dark-mode-card-bg);
+    border-color: var(--dark-mode-border);
+}
+
+body.dark-mode .filter-sort-modal {
+    background: var(--dark-mode-bg);
+}
+
+body.dark-mode .filter-sort-modal .modal-header h3,
+body.dark-mode .filter-sort-modal .close-modal-btn {
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode .sort-options-mobile label {
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode .sort-options-mobile input[type="radio"] {
+    background: var(--dark-mode-card-bg);
+    border-color: var(--dark-mode-border);
+}
+
+/* Responsive Adjustments for new elements */
+@media (max-width: 992px) {
+    .category-sidebar.desktop-filters {
+        display: none; /* Hide desktop filters on mobile */
+    }
+
+    .category-content-wrapper {
+        flex-direction: column; /* Stack content on mobile */
+    }
+
+    .sticky-filter-sort-bar {
+        top: 0; /* Stick to top on mobile */
+        border-radius: 0;
+    }
+
+    .sticky-filter-sort-bar .view-options {
+        display: none; /* Hide view toggle on mobile */
+    }
+
+    .sticky-filter-sort-bar .clear-filters-btn {
+        display: none; /* Hide clear filters on mobile (will be in modal) */
+    }
+
+    .product-listing.category-product-grid {
+        width: 100%;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* 2 columns on smaller screens */
+        gap: 15px;
+    }
+
+    .filter-sort-modal-overlay {
+        display: flex; /* Show modal overlay on mobile */
+    }
+}
+
+@media (min-width: 993px) {
+    .filter-sort-modal-overlay {
+        display: none; /* Hide modal overlay on desktop */
+    }
+}
+
+/* List View for Products */
+.product-grid.list-view {
+    grid-template-columns: 1fr; /* Single column for list view */
+}
+
+.product-grid.list-view .product-card {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    padding: 15px;
+}
+
+.product-grid.list-view .product-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-right: 15px;
+    margin-bottom: 0;
+}
+
+.product-grid.list-view .product-card .product-info {
+    flex-grow: 1;
+}
+
+.product-grid.list-view .product-card h3 {
+    margin-bottom: 5px;
+}
+
+.product-grid.list-view .product-card .price {
+    margin-bottom: 0;
+}
+
+.product-grid.list-view .product-actions {
+    opacity: 1; /* Always visible in list view */
+    transform: translateY(0);
+    flex-direction: column;
+    gap: 5px;
+    margin-left: auto; /* Push actions to the right */
+}
+
+.product-grid.list-view .product-actions button {
+    width: auto;
+    padding: 8px 12px;
+}
+
+.product-grid.list-view .product-card:hover .product-actions {
+    transform: translateY(0); /* No transform on hover for list view */
+}
+
+/* Adjustments for mobile in list view */
+@media (max-width: 768px) {
+    .product-grid.list-view .product-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .product-grid.list-view .product-card img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .product-grid.list-view .product-actions {
+        flex-direction: row; /* Keep buttons in a row on mobile list view */
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
     }
 }

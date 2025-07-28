@@ -54,7 +54,7 @@
             <li><a href="../index.html#about"><i class="icon">🏢</i> About</a></li>
             <li><a href="contact.html"><i class="icon">📞</i> Contact</a></li>
             <li><a href="join/login.html"><i class="icon">👤</i> Login / Sign Up</a></li>
-            <li><a href="products.html" class="btn btn-primary cta-mobile">Start Shopping</a></li>
+            <li><a href="products.html" class="btn btn-primary cta-mobile">View Products</a></li>
             <li><a href="join/register.html" class="btn btn-outline cta-mobile">Become a Seller</a></li>
         </ul>
         <div class="dark-mode-toggle">
@@ -67,57 +67,199 @@
     </nav>
 
     <main>
-        <section id="products-listing" class="container">
-            <h2>Our Products</h2>
-            <div class="product-controls">
-                <input type="text" id="product-search" placeholder="Search products...">
-                <select id="product-filter" aria-label="Filter Products by Category">
-                    <option value="all">All Categories</option>
-                    <option value="electronics">Electronics</option>
-                    <option value="fashion">Fashion</option>
-                    <option value="home">Home Goods</option>
-                    <option value="motors">Motors</option>
-                    <option value="services">Services</option>
-                </select>
-            </div>
-            <div class="product-grid">
-                <!-- Product cards will be loaded here -->
-                <div class="product-card">
-                    <img src="../assets/placeholder-product.jpg" alt="Product Image">
-                    <div class="product-info">
-                        <h3>Product Name 1</h3>
-                        <p class="price">$19.99</p>
-                        <div class="product-actions">
-                            <button class="btn btn-primary" aria-label="Add to Cart">Add to Cart</button>
-                            <button class="btn btn-secondary" aria-label="Quick View">Quick View</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="../assets/placeholder-product.jpg" alt="Product Image">
-                    <div class="product-info">
-                        <h3>Product Name 2</h3>
-                        <p class="price">$29.99</p>
-                        <div class="product-actions">
-                            <button class="btn btn-primary" aria-label="Add to Cart">Add to Cart</button>
-                            <button class="btn btn-secondary" aria-label="Quick View">Quick View</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="../assets/placeholder-product.jpg" alt="Product Image">
-                    <div class="product-info">
-                        <h3>Product Name 3</h3>
-                        <p class="price">$39.99</p>
-                        <div class="product-actions">
-                            <button class="btn btn-primary" aria-label="Add to Cart">Add to Cart</button>
-                            <button class="btn btn-secondary" aria-label="Quick View">Quick View</button>
-                        </div>
-                    </div>
-                </div>
+        <!-- Category Header/Banner -->
+        <section class="category-header container">
+            <h2 id="category-main-title"><span>All</span> Products</h2>
+            <p id="category-main-description" class="subtitle">Discover a wide range of products from various categories.</p>
+            <div id="category-main-banner" class="category-banner">
+                <!-- Category banner image will be loaded here -->
+                <img src="../assets/placeholder-product.jpg" alt="All Products Banner">
             </div>
         </section>
+
+        <!-- Sticky Filter & Sort Bar -->
+        <section class="sticky-filter-sort-bar container">
+            <div class="sort-options">
+                <label for="sort-by">Sort by:</label>
+                <select id="sort-by" class="sort-by-select">
+                    <option value="featured">Featured</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                    <option value="newest">Newest Arrivals</option>
+                    <option value="top-rated">Top Rated</option>
+                </select>
+            </div>
+            <div class="active-filter-chips" id="active-filter-chips">
+                <!-- Active filter chips will be added here by JS -->
+            </div>
+            <div class="view-options">
+                <button id="grid-view-toggle" class="view-toggle active"><i class="fas fa-th-large"></i> Grid</button>
+                <button id="list-view-toggle" class="view-toggle"><i class="fas fa-list"></i> List</button>
+            </div>
+            <button class="clear-filters-btn" id="clear-all-filters">Clear All Filters</button>
+        </section>
+
+        <div class="category-content-wrapper container">
+            <!-- Desktop Filters Sidebar -->
+            <aside class="category-sidebar desktop-filters">
+                <div class="sidebar-header">
+                    <h3>Filters</h3>
+                </div>
+                <div class="filter-group">
+                    <h4>Price Range</h4>
+                    <div class="price-range-display">
+                        <span id="min-price-display">$0</span> - <span id="max-price-display">$1000+</span>
+                    </div>
+                    <input type="range" id="price-range" class="price-range-slider" min="0" max="1000" value="1000">
+                </div>
+
+                <div class="filter-group">
+                    <h4>Rating</h4>
+                    <ul class="rating-filter">
+                        <li>
+                            <input type="radio" id="rating-5" name="rating" value="5">
+                            <label for="rating-5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></label>
+                        </li>
+                        <li>
+                            <input type="radio" id="rating-4" name="rating" value="4">
+                            <label for="rating-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> & Up</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="rating-3" name="rating" value="3">
+                            <label for="rating-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> & Up</label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Availability</h4>
+                    <label class="custom-checkbox-container">In Stock
+                        <input type="checkbox" id="in-stock-filter">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Brand</h4>
+                    <div class="tag-chips">
+                        <span>Brand A</span>
+                        <span>Brand B</span>
+                        <span>Brand C</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Product Listing Area -->
+            <section class="product-listing category-product-grid">
+                <div id="category-content" class="product-grid">
+                    <!-- Product cards will be loaded here -->
+                    <div class="product-card">
+                        <img src="../assets/placeholder-product.jpg" alt="Product Image">
+                        <div class="product-info">
+                            <h3>Product Name 1</h3>
+                            <p class="price">$19.99</p>
+                            <div class="product-actions">
+                                <button class="btn btn-primary" aria-label="Add to Cart">Add to Cart</button>
+                                <button class="btn btn-secondary" aria-label="Quick View">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="../assets/placeholder-product.jpg" alt="Product Image">
+                        <div class="product-info">
+                            <h3>Product Name 2</h3>
+                            <p class="price">$29.99</p>
+                            <div class="product-actions">
+                                <button class="btn btn-primary" aria-label="Add to Cart">Add to Cart</button>
+                                <button class="btn btn-secondary" aria-label="Quick View">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="../assets/placeholder-product.jpg" alt="Product Image">
+                        <div class="product-info">
+                            <h3>Product Name 3</h3>
+                            <p class="price">$39.99</p>
+                            <div class="product-actions">
+                                <button class="btn btn-primary" aria-label="Add to Cart">Add to Cart</button>
+                                <button class="btn btn-secondary" aria-label="Quick View">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
+
+    <!-- Mobile Filter/Sort Modal -->
+    <div class="filter-sort-modal-overlay" id="filter-sort-modal-overlay">
+        <div class="filter-sort-modal" id="filter-sort-modal">
+            <div class="modal-header">
+                <h3>Filter & Sort</h3>
+                <button class="close-modal-btn" id="close-filter-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-content">
+                <!-- Filters will be duplicated here for mobile -->
+                <div class="filter-group">
+                    <h4>Sort by</h4>
+                    <div class="sort-options-mobile">
+                        <label><input type="radio" name="sort-mobile" value="featured" checked> Featured</label>
+                        <label><input type="radio" name="sort-mobile" value="price-asc"> Price: Low to High</label>
+                        <label><input type="radio" name="sort-mobile" value="price-desc"> Price: High to Low</label>
+                        <label><input type="radio" name="sort-mobile" value="newest"> Newest Arrivals</label>
+                        <label><input type="radio" name="sort-mobile" value="top-rated"> Top Rated</label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Price Range</h4>
+                    <div class="price-range-display">
+                        <span id="min-price-display-mobile">$0</span> - <span id="max-price-display-mobile">$1000+</span>
+                    </div>
+                    <input type="range" id="price-range-mobile" class="price-range-slider" min="0" max="1000" value="1000">
+                </div>
+
+                <div class="filter-group">
+                    <h4>Rating</h4>
+                    <ul class="rating-filter">
+                        <li>
+                            <input type="radio" id="rating-5-mobile" name="rating-mobile" value="5">
+                            <label for="rating-5-mobile"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></label>
+                        </li>
+                        <li>
+                            <input type="radio" id="rating-4-mobile" name="rating-mobile" value="4">
+                            <label for="rating-4-mobile"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> & Up</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="rating-3-mobile" name="rating-mobile" value="3">
+                            <label for="rating-3-mobile"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> & Up</label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Availability</h4>
+                    <label class="custom-checkbox-container">In Stock
+                        <input type="checkbox" id="in-stock-filter-mobile">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Brand</h4>
+                    <div class="tag-chips">
+                        <span>Brand A</span>
+                        <span>Brand B</span>
+                        <span>Brand C</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="reset-filters-mobile">Reset</button>
+                <button class="btn btn-primary" id="apply-filters-mobile">Apply Filters</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
